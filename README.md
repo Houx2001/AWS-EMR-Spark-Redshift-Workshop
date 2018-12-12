@@ -78,10 +78,12 @@ Available IAM roles (可用 IAM 角色)：选择 myRedshiftRole。
 使用 SQL Workbench/J 连接到您的Refshift集群
 
 安装 SQL Workbench/J
-
 http://www.sql-workbench.net/
 
 转到安装并启动 SQL Workbench/J 页面。按照说明操作，在您的系统上安装 SQL Workbench/J。
+
+下载 Amazon Redshift JDBC 驱动程序
+https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/drivers/jdbc/1.2.16.1027/RedshiftJDBC42-1.2.16.1027.jar
 
 
 使用Spark进行数据分析：
