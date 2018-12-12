@@ -83,14 +83,14 @@ http://www.sql-workbench.net/
 转到安装并启动 SQL Workbench/J 页面。按照说明操作，在您的系统上安装 SQL Workbench/J。
 
 下载 Amazon Redshift JDBC 驱动程序
-https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/drivers/jdbc/1.2.16.1027/RedshiftJDBC42-1.2.16.1027.jar
+https://s3.amazonaws.com/redshift-downloads/drivers/RedshiftJDBC42-1.2.8.1005.jar
 
 具体配置Redshift步骤，请访问 http://docs.amazonaws.cn/redshift/latest/mgmt/connecting-using-workbench.html
 
 
 使用Spark进行数据分析：
 打开SSH主节点，执行下列命令进入spark-shell界面:
-./bin/spark-shell --jars 
+./bin/spark-shell --driver-class-path postgresql-9.4.1207.jar --jars postgresql-9.4.1207.jar
 
 在scala>环境下依次执行下列代码：
 
