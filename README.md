@@ -48,6 +48,41 @@ Open the Amazon S3 console at https://console.amazonaws.cn/s3/.
 
 点击上传，将people.json文件上传到S3
 
+Amazon Redshift 使用控制台创建集群
+要创建、修改、调整、删除、重启和备份集群，您可以使用 Amazon Redshift console 中的 Clusters 部分。
+
+快速启动集群过程
+登录 AWS 管理控制台 并通过以下网址打开 Amazon Redshift 控制台：https://console.amazonaws.cn/redshift/。
+
+在主菜单中，选择您要在其中创建集群的区域。在本教程中，选择 宁夏。
+
+在 Amazon Redshift 控制面板上，选择 Quick launch cluster (快速启动集群)
+
+在“Cluster specifications (集群规格)”页面上，输入下列值，然后选择 Launch cluster (启动集群)：
+
+Node type (节点类型)：选择 dc2.large。
+
+Number of compute nodes (计算节点数)：保留默认值 2。
+
+Master user name (主用户名)：保留默认值 awsuser。
+
+Master user password (主用户密码) 和 Confirm password (确认密码)：输入主用户账户的密码。
+
+Database port (数据库端口)：接受默认值 5439。
+
+Available IAM roles (可用 IAM 角色)：选择 myRedshiftRole。
+
+在“Clusters”页面上，选择您刚刚启动的集群，然后查看 Cluster Status 信息。确保 Cluster Status 为 available 且 Database Health 为 healthy，然后再根据本教程的后续步骤尝试连接到数据库。
+
+下载Redshift客户端应用
+使用 SQL Workbench/J 连接到您的Refshift集群
+
+安装 SQL Workbench/J
+
+http://www.sql-workbench.net/
+
+转到安装并启动 SQL Workbench/J 页面。按照说明操作，在您的系统上安装 SQL Workbench/J。
+
 打开SSH主节点，执行下列命令进入spark-shell界面:
 ./bin/spark-shell --jars 
 
