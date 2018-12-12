@@ -37,6 +37,9 @@ http：//www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 单击打开。
 单击“是”以取消安全警告。
 
+登录到EMR主节点后，下载redshift JDBC驱动程序：
+wget --no-check-certificate   https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/1.2.16.1027/RedshiftJDBC42-1.2.16.1027.jar
+
 默认情况下，Spark 外壳创建其自己的 SparkContext 对象 (称作 sc)。如果 REPL 中需要，您可以使用此上下文。
 sqlContext 也可在此外壳中使用，它是一种 HiveContext。
 
@@ -69,8 +72,6 @@ Master user name (主用户名)：保留默认值 awsuser。
 Master user password (主用户密码) 和 Confirm password (确认密码)：输入主用户账户的密码。
 
 Database port (数据库端口)：接受默认值 5439。
-
-Available IAM roles (可用 IAM 角色)：选择 myRedshiftRole。
 
 在“Clusters”页面上，选择您刚刚启动的集群，然后查看 Cluster Status 信息。确保 Cluster Status 为 available 且 Database Health 为 healthy，然后再根据本教程的后续步骤尝试连接到数据库。
 
