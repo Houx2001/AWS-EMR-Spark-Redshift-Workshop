@@ -83,6 +83,8 @@ http://www.sql-workbench.net/
 
 转到安装并启动 SQL Workbench/J 页面。按照说明操作，在您的系统上安装 SQL Workbench/J。
 
+
+使用Spark进行数据分析：
 打开SSH主节点，执行下列命令进入spark-shell界面:
 ./bin/spark-shell --jars 
 
