@@ -85,6 +85,8 @@ http://www.sql-workbench.net/
 下载 Amazon Redshift JDBC 驱动程序
 https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/drivers/jdbc/1.2.16.1027/RedshiftJDBC42-1.2.16.1027.jar
 
+具体配置Redshift步骤，请访问 http://docs.amazonaws.cn/redshift/latest/mgmt/connecting-using-workbench.html
+
 
 使用Spark进行数据分析：
 打开SSH主节点，执行下列命令进入spark-shell界面:
