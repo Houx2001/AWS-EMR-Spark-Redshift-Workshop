@@ -37,7 +37,8 @@ http：//www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 单击打开。
 单击“是”以取消安全警告。
 
-默认情况下，Spark 外壳创建其自己的 SparkContext 对象 (称作 sc)。如果 REPL 中需要，您可以使用此上下文。sqlContext 也可在此外壳中使用，它是一种 HiveContext。
+默认情况下，Spark 外壳创建其自己的 SparkContext 对象 (称作 sc)。如果 REPL 中需要，您可以使用此上下文。
+sqlContext 也可在此外壳中使用，它是一种 HiveContext。
 
 将数据源文件上传到S3上
 
@@ -66,7 +67,7 @@ val spark = SparkSession
 
 import spark.implicits._
 
-val df = spark.read.json("s3a://sparksample/people.json")
+val df = spark.read.json("s3://sparksample/people.json")
 
 // Displays the content of the DataFrame to stdout
 df.show()
@@ -136,11 +137,11 @@ sqlDF.show()
     // |  19| Justin|
     // +----+-------+
 
- // Register the DataFrame as a global temporary view
- df.createGlobalTempView("people")
+// Register the DataFrame as a global temporary view
+df.createGlobalTempView("people")
 
- // Global temporary view is tied to a system preserved database `global_temp`
- spark.sql("SELECT * FROM global_temp.people").show()
+// Global temporary view is tied to a system preserved database `global_temp`
+spark.sql("SELECT * FROM global_temp.people").show()
     // +----+-------+
     // | age|   name|
     // +----+-------+
