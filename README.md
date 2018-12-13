@@ -91,7 +91,7 @@ https://s3.amazonaws.com/redshift-downloads/drivers/RedshiftJDBC42-1.2.8.1005.ja
 
 使用Spark进行数据分析：
 打开SSH主节点，执行下列命令进入spark-shell界面:
-sudo spark-shell --driver-class-path RedshiftJDBC42-1.2.16.1027.jar --jars RedshiftJDBC42-1.2.16.1027.jar
+sudo spark-shell --jars RedshiftJDBC42-1.2.16.1027.jar 
 
 在scala>环境下依次执行下列代码：
 
