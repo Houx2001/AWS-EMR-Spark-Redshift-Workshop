@@ -98,6 +98,7 @@ val df = spark.read.json("s3://sparksample/people.json")
 
 // Displays the content of the DataFrame to stdout
 df.show()
+
     // +----+-------+
     // | age|   name|
     // +----+-------+
@@ -109,12 +110,14 @@ df.show()
 import spark.implicits._
   
 df.printSchema()
+
     // root
     // |-- age: long (nullable = true)
     // |-- name: string (nullable = true)
 
 // Select only the "name" column
 df.select("name").show()
+
     // +-------+
     // |   name|
     // +-------+
@@ -125,6 +128,7 @@ df.select("name").show()
 
  // Select everybody, but increment the age by 1
  df.select($"name", $"age" + 1).show()
+
     // +-------+---------+
     // |   name|(age + 1)|
     // +-------+---------+
@@ -134,6 +138,7 @@ df.select("name").show()
     // +-------+---------+
 
 df.filter($"age" > 21).show()
+
     // +---+----+
     // |age|name|
     // +---+----+
@@ -142,6 +147,7 @@ df.filter($"age" > 21).show()
 
 // Count people by age
 df.groupBy("age").count().show()
+
     // +----+-----+
     // | age|count|
     // +----+-----+
@@ -156,6 +162,7 @@ df.createOrReplaceTempView("people")
 val sqlDF = spark.sql("SELECT * FROM people")
 
 sqlDF.show()
+
     // +----+-------+
     // | age|   name|
     // +----+-------+
@@ -169,6 +176,7 @@ df.createGlobalTempView("people")
 
 // Global temporary view is tied to a system preserved database `global_temp`
 spark.sql("SELECT * FROM global_temp.people").show()
+
     // +----+-------+
     // | age|   name|
     // +----+-------+
@@ -179,6 +187,7 @@ spark.sql("SELECT * FROM global_temp.people").show()
 
 // Global temporary view is cross-session
 spark.newSession().sql("SELECT * FROM global_temp.people").show()
+
     // +----+-------+
     // | age|   name|
     // +----+-------+
@@ -190,4 +199,3 @@ spark.newSession().sql("SELECT * FROM global_temp.people").show()
 df.write.format("jdbc").option("driver","com.amazon.redshift.jdbc42.Driver").option("url", "你所创建的redshift集群JDBC URL").option("dbtable", "public.t_person").option("user", "redshift用户").option("password", "redshift密码").save() 
 
 使用 SQL Workbench/J 连接到您的Refshift集群查看Spark已经将数据存入redshift表public.t_person中
-
