@@ -40,9 +40,6 @@ http：//www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 登录到EMR主节点后，下载redshift JDBC驱动程序：
 wget --no-check-certificate   https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/1.2.16.1027/RedshiftJDBC42-1.2.16.1027.jar
 
-默认情况下，Spark 外壳创建其自己的 SparkContext 对象 (称作 sc)。如果 REPL 中需要，您可以使用此上下文。
-sqlContext 也可在此外壳中使用，它是一种 HiveContext。
-
 将数据源文件上传到S3上
 
 Open the Amazon S3 console at https://console.amazonaws.cn/s3/.
@@ -93,21 +90,9 @@ https://s3.amazonaws.com/redshift-downloads/drivers/RedshiftJDBC42-1.2.8.1005.ja
 打开SSH主节点，执行下列命令进入spark-shell界面:
 sudo spark-shell --jars RedshiftJDBC42-1.2.16.1027.jar 
 
+默认情况下，Spark 外壳创建其自己的 SparkContext 对象 (称作 sc)。如果 REPL 中需要，您可以使用此上下文。
+
 在scala>环境下依次执行下列代码：
-
-import org.apache.spark.sql.Row
-
-import org.apache.spark.sql.SparkSession
-
-import org.apache.spark.sql.types._
-
-val spark = SparkSession
-      .builder()
-      .appName("Spark SQL basic example")
-      .config("spark.some.config.option", "some-value")
-      .getOrCreate()
-
-import spark.implicits._
 
 val df = spark.read.json("s3://sparksample/people.json")
 
@@ -204,4 +189,5 @@ spark.newSession().sql("SELECT * FROM global_temp.people").show()
   
 df.write.format("jdbc").option("driver","com.amazon.redshift.jdbc42.Driver").option("url", "你所创建的redshift集群JDBC URL").option("dbtable", "public.t_person").option("user", "redshift用户").option("password", "redshift密码").save() 
 
+使用 SQL Workbench/J 连接到您的Refshift集群查看Spark已经将数据存入redshift表public.t_person中
 
