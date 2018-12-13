@@ -202,6 +202,6 @@ spark.newSession().sql("SELECT * FROM global_temp.people").show()
     // |  19| Justin|
     // +----+-------+
   
- 
+df.write.format("jdbc").option("driver","com.amazon.redshift.jdbc42.Driver").option("url", "你所创建的redshift集群JDBC URL").option("dbtable", "public.t_person").option("user", "redshift用户").option("password", "redshift密码").save() 
 
 
