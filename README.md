@@ -188,6 +188,7 @@ spark.sql("SELECT * FROM global_temp.people").show()
     // +----+-------+
 
 // Global temporary view is cross-session
+
 spark.newSession().sql("SELECT * FROM global_temp.people").show()
 
     // +----+-------+
