@@ -157,6 +157,7 @@ df.groupBy("age").count().show()
     // +----+-----+
 
 // Register the DataFrame as a SQL temporary view
+
 df.createOrReplaceTempView("people")
 
 val sqlDF = spark.sql("SELECT * FROM people")
@@ -172,6 +173,7 @@ sqlDF.show()
     // +----+-------+
 
 // Register the DataFrame as a global temporary view
+
 df.createGlobalTempView("people")
 
 // Global temporary view is tied to a system preserved database `global_temp`
