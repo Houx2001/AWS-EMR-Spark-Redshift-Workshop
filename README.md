@@ -87,6 +87,7 @@ https://s3.amazonaws.com/redshift-downloads/drivers/RedshiftJDBC42-1.2.8.1005.ja
 
 ## 9. 使用Spark进行数据分析：
 打开SSH主节点，执行下列命令进入spark-shell界面:
+
 sudo spark-shell --jars RedshiftJDBC42-1.2.16.1027.jar 
 
 默认情况下，Spark 外壳创建其自己的 SparkContext 对象 (称作 sc)。如果 REPL 中需要，您可以使用此上下文。
