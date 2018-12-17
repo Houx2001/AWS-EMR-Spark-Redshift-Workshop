@@ -54,7 +54,7 @@ object SparkSQLExample {
 
   private def runBasicDataFrameExample(spark: SparkSession): Unit = {
     // $example on:create_df$
-    val df = spark.read.json("examples/src/main/resources/people.json")
+    val df = spark.read.json("s3://sparksample/people.json")
 
     // Displays the content of the DataFrame to stdout
     df.show()
